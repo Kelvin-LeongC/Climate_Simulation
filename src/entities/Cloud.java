@@ -12,7 +12,7 @@ public class Cloud extends PApplet {
     private int waterStored = 40;
 
     public Cloud(int x, int y, int z, int dropletAmount){
-        float z_rand = random(-10, 10);
+        float z_rand = random(-20, 20);
         this.pos = new PVector(x, y, z+z_rand);
         this.dropletAmount = dropletAmount;
         rainDropletsArray = new ArrayList<>();
