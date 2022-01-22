@@ -4,9 +4,9 @@ public class Cloud {
     private int x;
     private int y;
     private int z;
-    private int size;
+    private float size;
 
-    public Cloud(int x, int y, int z, int size){
+    public Cloud(int x, int y, int z, float size){
         this.x = x;
         this.y = y;
         this.z = z;
@@ -25,7 +25,7 @@ public class Cloud {
         return z;
     }
 
-    public int getSize() {
+    public float getSize() {
         return size;
     }
 }

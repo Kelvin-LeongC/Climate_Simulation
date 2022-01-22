@@ -27,12 +27,19 @@ public class Main extends PApplet {
 
         this.terrain = new Terrain(cols, rows).getTerrain();
 
+
         cloud_array = new ArrayList<>();
 
-        int x_rand = 100;
-        int y_rand = 100;
-        Cloud cloud_1 = new Cloud(x_rand*scale, y_rand*scale, cloud_altitude, 10);
+        Cloud cloud_1 = new Cloud(25*scale, 25*scale, cloud_altitude, 1);
+        Cloud cloud_2 = new Cloud(10*scale, 10*scale, cloud_altitude, 1);
+        Cloud cloud_3 = new Cloud(10*scale, 40*scale, cloud_altitude, 1);
+        Cloud cloud_4 = new Cloud(40*scale, 10*scale, cloud_altitude, 1);
+        Cloud cloud_5 = new Cloud(40*scale, 40*scale, cloud_altitude, 1);
         cloud_array.add(cloud_1);
+        cloud_array.add(cloud_2);
+        cloud_array.add(cloud_3);
+        cloud_array.add(cloud_4);
+        cloud_array.add(cloud_5);
 
     }
 
@@ -47,12 +54,10 @@ public class Main extends PApplet {
 
         drawTerrain();
 
-        pushMatrix();
-        translate(500,1000, 400);
-        fill(255);
-        sphere(10);
+        for(int i = 0; i < cloud_array.size(); i++){
+            drawCloud(cloud_array.get(i));
+        }
 
-        popMatrix();
 
 
     }
@@ -78,7 +83,19 @@ public class Main extends PApplet {
     }
 
     private void drawCloud(Cloud cloud){
-        pushMatrix();
+        drawSphere(cloud.getX(), cloud.getY(), cloud.getZ(), 0, 0, 0, 8);
+        drawSphere(cloud.getX(), cloud.getY(), cloud.getZ(), -5, 0, 0, 5);
+        drawSphere(cloud.getX(), cloud.getY(), cloud.getZ(), +5, 0, 0, 5);
+        drawSphere(cloud.getX(), cloud.getY(), cloud.getZ(), 0, -5, 0, 5);
+        drawSphere(cloud.getX(), cloud.getY(), cloud.getZ(), 0, +5, 0, 5);
+        drawSphere(cloud.getX(), cloud.getY(), cloud.getZ(), 0, 0, +5, 5);
+    }
 
+    private void drawSphere(int x, int y, int z, int x_dev, int y_dev, int z_dev, float size){
+        pushMatrix();
+        translate(x + x_dev, y + y_dev, z + z_dev);
+        fill(255);
+        sphere(size);
+        popMatrix();
     }
 }
