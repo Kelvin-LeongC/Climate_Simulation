@@ -56,10 +56,17 @@ public class Main extends PApplet {
             drawCloud(cloud);
 
             ArrayList<RainDroplet> rainDropletArray = cloud.getRainDropletsArray();
-            for(int j = 0; j < rainDropletArray.size(); j++){
+            for (int j = 0; j < rainDropletArray.size(); j++) {
                 drawRainDroplet(rainDropletArray.get(j));
             }
+
+            cloud.deductWaterStored();
+            if(cloud_array.get(0).getWaterStored() <= 0){
+                cloud_array.remove(0);
+            }
         }
+
+
 
 
 
@@ -86,12 +93,12 @@ public class Main extends PApplet {
     }
 
     private void drawCloud(Cloud cloud){
-        drawSphere(cloud.getPos(), 0, 0, 0, 8);
-        drawSphere(cloud.getPos(), -5, 0, 0, 5);
-        drawSphere(cloud.getPos(), +5, 0, 0, 5);
-        drawSphere(cloud.getPos(), 0, -5, 0, 5);
-        drawSphere(cloud.getPos(), 0, +5, 0, 5);
-        drawSphere(cloud.getPos(), 0, 0, +5, 5);
+        drawSphere(cloud.getPos(), 0, 0, 0, 10);
+        drawSphere(cloud.getPos(), -5, 0, 0, 8);
+        drawSphere(cloud.getPos(), +5, 0, 0, 8);
+        drawSphere(cloud.getPos(), 0, -5, 0, 8);
+        drawSphere(cloud.getPos(), 0, +5, 0, 8);
+        drawSphere(cloud.getPos(), 0, 0, +5, 8);
     }
 
     private void drawSphere(PVector pos, int x_dev, int y_dev, int z_dev, int size){
@@ -101,7 +108,6 @@ public class Main extends PApplet {
         sphere(size);
         popMatrix();
     }
-
 
     private void drawRainDroplet(RainDroplet rainDroplet){
         stroke(255);

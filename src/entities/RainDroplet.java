@@ -31,6 +31,7 @@ public class RainDroplet extends PApplet{
             z = cloud_pos.z;
             x = cloud_pos.x + random(-0.5f, 0.5f);
             y = cloud_pos.y + random(-0.5f, 0.5f);
+            vel.z = random(-8, -4);
         }
     }
 

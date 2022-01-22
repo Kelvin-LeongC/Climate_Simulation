@@ -9,6 +9,7 @@ public class Cloud extends PApplet {
     private PVector pos;
     private int dropletAmount;
     private ArrayList<RainDroplet> rainDropletsArray;
+    private int waterStored = 40;
 
     public Cloud(int x, int y, int z, int dropletAmount){
         float z_rand = random(-10, 10);
@@ -31,5 +32,17 @@ public class Cloud extends PApplet {
 
     public void addDroplets(RainDroplet rainDroplet){
         rainDropletsArray.add(rainDroplet);
+    }
+
+    public int getWaterStored(){
+        return waterStored;
+    }
+
+    // A probability function to deduct the amount of water stored
+    // in this cloud
+    public void deductWaterStored(){
+        if(random(0, 1) < 0.1){
+            waterStored--;
+        }
     }
 }
