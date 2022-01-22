@@ -1,6 +1,7 @@
 import entities.*;
 import processing.core.PApplet;
 import processing.core.PConstants;
+import processing.core.PVector;
 
 import java.util.ArrayList;
 
@@ -30,11 +31,11 @@ public class Main extends PApplet {
 
         cloud_array = new ArrayList<>();
 
-        Cloud cloud_1 = new Cloud(25*scale, 25*scale, cloud_altitude, 1);
-        Cloud cloud_2 = new Cloud(10*scale, 10*scale, cloud_altitude, 1);
-        Cloud cloud_3 = new Cloud(10*scale, 40*scale, cloud_altitude, 1);
-        Cloud cloud_4 = new Cloud(40*scale, 10*scale, cloud_altitude, 1);
-        Cloud cloud_5 = new Cloud(40*scale, 40*scale, cloud_altitude, 1);
+        Cloud cloud_1 = new Cloud(25, 25, cloud_altitude);
+        Cloud cloud_2 = new Cloud(10, 10, cloud_altitude);
+        Cloud cloud_3 = new Cloud(10, 40, cloud_altitude);
+        Cloud cloud_4 = new Cloud(40, 10, cloud_altitude);
+        Cloud cloud_5 = new Cloud(40, 40, cloud_altitude);
         cloud_array.add(cloud_1);
         cloud_array.add(cloud_2);
         cloud_array.add(cloud_3);
@@ -83,17 +84,17 @@ public class Main extends PApplet {
     }
 
     private void drawCloud(Cloud cloud){
-        drawSphere(cloud.getX(), cloud.getY(), cloud.getZ(), 0, 0, 0, 8);
-        drawSphere(cloud.getX(), cloud.getY(), cloud.getZ(), -5, 0, 0, 5);
-        drawSphere(cloud.getX(), cloud.getY(), cloud.getZ(), +5, 0, 0, 5);
-        drawSphere(cloud.getX(), cloud.getY(), cloud.getZ(), 0, -5, 0, 5);
-        drawSphere(cloud.getX(), cloud.getY(), cloud.getZ(), 0, +5, 0, 5);
-        drawSphere(cloud.getX(), cloud.getY(), cloud.getZ(), 0, 0, +5, 5);
+        drawSphere(cloud.getPos(), 0, 0, 0, 8, scale);
+        drawSphere(cloud.getPos(), -5, 0, 0, 5, scale);
+        drawSphere(cloud.getPos(), +5, 0, 0, 5, scale);
+        drawSphere(cloud.getPos(), 0, -5, 0, 5, scale);
+        drawSphere(cloud.getPos(), 0, +5, 0, 5, scale);
+        drawSphere(cloud.getPos(), 0, 0, +5, 5, scale);
     }
 
-    private void drawSphere(int x, int y, int z, int x_dev, int y_dev, int z_dev, float size){
+    private void drawSphere(PVector pos, int x_dev, int y_dev, int z_dev, int size, int scale){
         pushMatrix();
-        translate(x + x_dev, y + y_dev, z + z_dev);
+        translate(pos.x * scale + x_dev, pos.y * scale + y_dev, pos.z + z_dev);
         fill(255);
         sphere(size);
         popMatrix();

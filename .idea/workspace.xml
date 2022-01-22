@@ -20,11 +20,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f12b63b5-c168-4910-ac3c-cede53b393e3" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/Climate_Simulation.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Climate_Simulation.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entities/RainDroplet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Climate_Simulation/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Climate_Simulation/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Climate_Simulation/entities/Cloud.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Climate_Simulation/entities/Cloud.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/entities/Cloud.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Cloud.java" afterDir="false" />
     </list>
@@ -99,7 +96,7 @@
       <workItem from="1642653018525" duration="5363000" />
       <workItem from="1642694689873" duration="786000" />
       <workItem from="1642696210410" duration="2250000" />
-      <workItem from="1642816174945" duration="874000" />
+      <workItem from="1642816174945" duration="2930000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1642653439914</created>
@@ -108,7 +105,14 @@
       <option name="project" value="LOCAL" />
       <updated>1642653439914</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Adding clouds">
+      <created>1642820280387</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1642820280387</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -128,7 +132,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="Initial commit" />
+    <MESSAGE value="Adding clouds" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adding clouds" />
   </component>
   <component name="WindowStateProjectService">
     <state x="208" y="22" width="1024" height="823" key="#Project_Structure" timestamp="1642696053644">
@@ -196,9 +201,10 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="208" y="22" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1642653323930" />
-    <state x="320" y="190" key="Vcs.Push.Dialog.v2" timestamp="1642653461894">
-      <screen x="0" y="0" width="1440" height="900" />
+    <state x="320" y="196" key="Vcs.Push.Dialog.v2" timestamp="1642820290890">
+      <screen x="0" y="22" width="1440" height="823" />
     </state>
     <state x="320" y="190" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1642653461894" />
+    <state x="320" y="196" key="Vcs.Push.Dialog.v2/0.22.1440.823@0.22.1440.823" timestamp="1642820290890" />
   </component>
 </project>

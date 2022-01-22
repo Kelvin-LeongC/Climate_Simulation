@@ -1,31 +1,21 @@
 package entities;
 
+import processing.core.PVector;
+
 public class Cloud {
+    private PVector pos;
     private int x;
     private int y;
     private int z;
-    private float size;
 
-    public Cloud(int x, int y, int z, float size){
+    public Cloud(int x, int y, int z){
+        this.pos = new PVector(x, y, z);
         this.x = x;
         this.y = y;
         this.z = z;
-        this.size = size;
     }
 
-    public int getX() {
-        return x;
-    }
-
-    public int getY() {
-        return y;
-    }
-
-    public int getZ() {
-        return z;
-    }
-
-    public float getSize() {
-        return size;
+    public PVector getPos(){
+        return pos;
     }
 }
