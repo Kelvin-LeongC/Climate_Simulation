@@ -23,7 +23,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Climate_Simulation/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Climate_Simulation/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entities/RainDroplet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/RainDroplet.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,7 +97,7 @@
       <workItem from="1642694689873" duration="786000" />
       <workItem from="1642696210410" duration="2250000" />
       <workItem from="1642816174945" duration="34498000" />
-      <workItem from="1642901635214" duration="1246000" />
+      <workItem from="1642901635214" duration="1961000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1642653439914</created>
@@ -142,7 +141,14 @@
       <option name="project" value="LOCAL" />
       <updated>1642895399575</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Optimized raining for loops to improve lag">
+      <created>1642903095421</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1642903095421</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -167,7 +173,8 @@
     <MESSAGE value="Add raindrops, processing in java really hates OOP" />
     <MESSAGE value="Added cloud-droplet disappearing condition" />
     <MESSAGE value="Added cloud appearing condition" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added cloud appearing condition" />
+    <MESSAGE value="Optimized raining for loops to improve lag" />
+    <option name="LAST_COMMIT_MESSAGE" value="Optimized raining for loops to improve lag" />
   </component>
   <component name="WindowStateProjectService">
     <state x="208" y="22" width="1024" height="823" key="#Project_Structure" timestamp="1642696053644">
@@ -179,36 +186,36 @@
       <screen x="0" y="22" width="1440" height="823" />
     </state>
     <state x="184" y="95" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.22.1440.823@0.22.1440.823" timestamp="1642696187167" />
-    <state width="1398" height="149" key="GridCell.Tab.0.bottom" timestamp="1642902566806">
-      <screen x="0" y="22" width="1440" height="824" />
+    <state width="1398" height="148" key="GridCell.Tab.0.bottom" timestamp="1642903541005">
+      <screen x="0" y="22" width="1440" height="823" />
     </state>
     <state width="1398" height="163" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1642746167710" />
-    <state width="1398" height="163" key="GridCell.Tab.0.bottom/0.22.1440.823@0.22.1440.823" timestamp="1642822810722" />
-    <state width="1398" height="149" key="GridCell.Tab.0.bottom/0.22.1440.824@0.22.1440.824" timestamp="1642902566806" />
+    <state width="1398" height="148" key="GridCell.Tab.0.bottom/0.22.1440.823@0.22.1440.823" timestamp="1642903541005" />
+    <state width="1398" height="149" key="GridCell.Tab.0.bottom/0.22.1440.824@0.22.1440.824" timestamp="1642902934363" />
     <state width="1398" height="130" key="GridCell.Tab.0.bottom/0.22.1440.825@0.22.1440.825" timestamp="1642877832070" />
     <state width="1398" height="120" key="GridCell.Tab.0.bottom/0.22.1440.828@0.22.1440.828" timestamp="1642535631241" />
-    <state width="1398" height="149" key="GridCell.Tab.0.center" timestamp="1642902566805">
-      <screen x="0" y="22" width="1440" height="824" />
+    <state width="1398" height="148" key="GridCell.Tab.0.center" timestamp="1642903541004">
+      <screen x="0" y="22" width="1440" height="823" />
     </state>
     <state width="1398" height="163" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1642746167709" />
-    <state width="1398" height="163" key="GridCell.Tab.0.center/0.22.1440.823@0.22.1440.823" timestamp="1642822810721" />
-    <state width="1398" height="149" key="GridCell.Tab.0.center/0.22.1440.824@0.22.1440.824" timestamp="1642902566805" />
+    <state width="1398" height="148" key="GridCell.Tab.0.center/0.22.1440.823@0.22.1440.823" timestamp="1642903541004" />
+    <state width="1398" height="149" key="GridCell.Tab.0.center/0.22.1440.824@0.22.1440.824" timestamp="1642902934362" />
     <state width="1398" height="130" key="GridCell.Tab.0.center/0.22.1440.825@0.22.1440.825" timestamp="1642877832069" />
     <state width="1398" height="120" key="GridCell.Tab.0.center/0.22.1440.828@0.22.1440.828" timestamp="1642535631240" />
-    <state width="1398" height="149" key="GridCell.Tab.0.left" timestamp="1642902566805">
-      <screen x="0" y="22" width="1440" height="824" />
+    <state width="1398" height="148" key="GridCell.Tab.0.left" timestamp="1642903541004">
+      <screen x="0" y="22" width="1440" height="823" />
     </state>
     <state width="1398" height="163" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1642746167709" />
-    <state width="1398" height="163" key="GridCell.Tab.0.left/0.22.1440.823@0.22.1440.823" timestamp="1642822810721" />
-    <state width="1398" height="149" key="GridCell.Tab.0.left/0.22.1440.824@0.22.1440.824" timestamp="1642902566804" />
+    <state width="1398" height="148" key="GridCell.Tab.0.left/0.22.1440.823@0.22.1440.823" timestamp="1642903541004" />
+    <state width="1398" height="149" key="GridCell.Tab.0.left/0.22.1440.824@0.22.1440.824" timestamp="1642902934362" />
     <state width="1398" height="130" key="GridCell.Tab.0.left/0.22.1440.825@0.22.1440.825" timestamp="1642877832069" />
     <state width="1398" height="120" key="GridCell.Tab.0.left/0.22.1440.828@0.22.1440.828" timestamp="1642535631239" />
-    <state width="1398" height="149" key="GridCell.Tab.0.right" timestamp="1642902566805">
-      <screen x="0" y="22" width="1440" height="824" />
+    <state width="1398" height="148" key="GridCell.Tab.0.right" timestamp="1642903541005">
+      <screen x="0" y="22" width="1440" height="823" />
     </state>
     <state width="1398" height="163" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1642746167710" />
-    <state width="1398" height="163" key="GridCell.Tab.0.right/0.22.1440.823@0.22.1440.823" timestamp="1642822810722" />
-    <state width="1398" height="149" key="GridCell.Tab.0.right/0.22.1440.824@0.22.1440.824" timestamp="1642902566805" />
+    <state width="1398" height="148" key="GridCell.Tab.0.right/0.22.1440.823@0.22.1440.823" timestamp="1642903541005" />
+    <state width="1398" height="149" key="GridCell.Tab.0.right/0.22.1440.824@0.22.1440.824" timestamp="1642902934363" />
     <state width="1398" height="130" key="GridCell.Tab.0.right/0.22.1440.825@0.22.1440.825" timestamp="1642877832070" />
     <state width="1398" height="120" key="GridCell.Tab.0.right/0.22.1440.828@0.22.1440.828" timestamp="1642535631241" />
     <state width="1398" height="304" key="GridCell.Tab.1.bottom" timestamp="1642366943681">
@@ -235,11 +242,11 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="208" y="22" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1642653323930" />
-    <state x="320" y="196" key="Vcs.Push.Dialog.v2" timestamp="1642880069821">
-      <screen x="0" y="22" width="1440" height="824" />
+    <state x="320" y="196" key="Vcs.Push.Dialog.v2" timestamp="1642903115465">
+      <screen x="0" y="22" width="1440" height="823" />
     </state>
     <state x="320" y="190" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1642653461894" />
-    <state x="320" y="196" key="Vcs.Push.Dialog.v2/0.22.1440.823@0.22.1440.823" timestamp="1642820290890" />
+    <state x="320" y="196" key="Vcs.Push.Dialog.v2/0.22.1440.823@0.22.1440.823" timestamp="1642903115465" />
     <state x="320" y="196" key="Vcs.Push.Dialog.v2/0.22.1440.824@0.22.1440.824" timestamp="1642880069821" />
     <state x="253" y="176" width="933" height="617" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1642877010316">
       <screen x="0" y="22" width="1440" height="824" />

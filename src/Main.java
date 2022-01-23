@@ -96,7 +96,7 @@ public class Main extends PApplet {
 
             // Critical condition to determine if it turns raining
             System.out.println(cloud_array.size());
-            if(cloud_array.size()/grid_total > 0.03){
+            if(cloud_array.size()/grid_total > 0.04){
                 raining = true;
 
                 for(Cloud cloud: cloud_array){
@@ -136,12 +136,6 @@ public class Main extends PApplet {
             }
 
         }
-
-
-
-
-
-
     }
 
     private void drawTerrain(){
@@ -176,17 +170,21 @@ public class Main extends PApplet {
 
     private void drawCloud(Cloud cloud){
         drawSphere(cloud.getPos(), 0, 0, 0, 9);
-        drawSphere(cloud.getPos(), -5, 0, 0, 8);
-        drawSphere(cloud.getPos(), +5, 0, 0, 8);
-        drawSphere(cloud.getPos(), 0, -5, 0, 8);
-        drawSphere(cloud.getPos(), 0, +5, 0, 8);
-        drawSphere(cloud.getPos(), 0, 0, +5, 8);
+        drawSphere(cloud.getPos(), -5, 0, 0, 6);
+        drawSphere(cloud.getPos(), +5, 0, 0, 6);
+        drawSphere(cloud.getPos(), 0, -5, 0, 6);
+        drawSphere(cloud.getPos(), 0, +5, 0, 6);
+        drawSphere(cloud.getPos(), 0, 0, +5, 6);
     }
 
     private void drawSphere(PVector pos, int x_dev, int y_dev, int z_dev, int size){
         pushMatrix();
         translate(pos.x * scale + x_dev, pos.y * scale + y_dev, pos.z + z_dev);
-        fill(255);
+        if(!raining){
+            fill(255);
+        }else{
+            fill(200);
+        }
         sphere(size);
         popMatrix();
     }
