@@ -20,6 +20,9 @@ public class Main extends PApplet {
     private int[][] waterEvaporated;
 
     private boolean raining = false;
+    private boolean done = false;
+
+    private ArrayList<RainDroplet> rainDropletsArray;
 
 
     public static void main(String[] args) {
@@ -46,6 +49,7 @@ public class Main extends PApplet {
         }
 
         cloud_array = new ArrayList<>();
+        rainDropletsArray = new ArrayList<>();
 
         /*
         Cloud cloud_1 = new Cloud(25, 25, cloud_altitude, (int) random(10, 30));
@@ -92,39 +96,47 @@ public class Main extends PApplet {
 
             // Critical condition to determine if it turns raining
             System.out.println(cloud_array.size());
-            if(cloud_array.size()/grid_total > 0.05){
+            if(cloud_array.size()/grid_total > 0.03){
                 raining = true;
 
                 for(Cloud cloud: cloud_array){
-                    cloud.addDroplets(new RainDroplet(cloud, (int)terrain[(int)cloud.getPos().x][(int)cloud.getPos().y]));
+                    rainDropletsArray.add(new RainDroplet(cloud, (int)terrain[(int)cloud.getPos().x][(int)cloud.getPos().y]));
                 }
             }
         }
 
-        for(int i = 0; i < cloud_array.size(); i++){
+        for(int i = 0; i < cloud_array.size(); i++) {
 
             Cloud cloud = cloud_array.get(i);
             drawCloud(cloud);
 
-
-            if(raining) {
-                ArrayList<RainDroplet> rainDropletArray = cloud.getRainDropletsArray();
-                for (int j = 0; j < rainDropletArray.size(); j++) {
-                    drawRainDroplet(rainDropletArray.get(j));
-                }
-                cloud.deductWaterStored();
-
-                if (cloud_array.get(0).getWaterStored() <= 0) {
-                    cloud_array.remove(0);
-                }
-
-                if(cloud_array.size() == 0){
-                    resetGridPoints();
-                    raining = false;
-                }
-
-            }
         }
+
+        if(raining) {
+
+            for (RainDroplet rainDroplet: rainDropletsArray) {
+                drawRainDroplet(rainDroplet);
+
+                if(!rainDropletsArray.contains(rainDroplet)){
+                    rainDropletsArray.remove(rainDroplet);
+                }
+            }
+
+            for(Cloud cloud: cloud_array) {
+                cloud.deductWaterStored();
+            }
+
+            if (cloud_array.get(0).getWaterStored() <= 0) {
+                cloud_array.remove(0);
+            }
+
+            if(cloud_array.size() == 0){
+                resetGridPoints();
+                raining = false;
+            }
+
+        }
+
 
 
 
