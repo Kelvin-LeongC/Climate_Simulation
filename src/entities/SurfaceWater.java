@@ -17,8 +17,8 @@ public class SurfaceWater extends PApplet {
         }
     }
 
-    public boolean evaporated(int x, int y){
-        if(random(0,1) < surfaceWater[x][y]/1000){
+    public boolean evaporated(int x, int y, float externalFactor){
+        if(random(0,1) * (externalFactor/100.0) < surfaceWater[x][y]/1000){
             return true;
         }
         return false;

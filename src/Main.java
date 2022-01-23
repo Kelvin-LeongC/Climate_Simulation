@@ -18,6 +18,7 @@ public class Main extends PApplet {
     private ArrayList<Cloud> cloud_array;
 
     private int[][] waterEvaporated;
+    private float[][] dustMap;
 
     private boolean raining = false;
     private boolean done = false;
@@ -36,6 +37,7 @@ public class Main extends PApplet {
 
         this.terrain = new Terrain(cols, rows).getTerrain();
         this.surfaceWater = new SurfaceWater(terrain);
+        this.dustMap = new DustMap(cols, rows).getDustMap();
 
         // Initialize the grid for evaporation counts
         // and the grid for confirming if a cloud already exist
@@ -161,7 +163,7 @@ public class Main extends PApplet {
     private void updateEvaporation(){
         for(int x = 0; x < cols; x++){
             for(int y = 0; y < rows; y++){
-                if(waterEvaporated[x][y] != -1 && surfaceWater.evaporated(x, y)){
+                if(waterEvaporated[x][y] != -1 && surfaceWater.evaporated(x, y, dustMap[x][y])){
                     waterEvaporated[x][y]++;
                 }
             }
