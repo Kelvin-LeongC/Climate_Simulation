@@ -20,6 +20,7 @@ public class Terrain extends PApplet {
         }
     }
 
+    // A function that gets the terrain map
     public float[][] getTerrain(){
         return this.terrain;
     }

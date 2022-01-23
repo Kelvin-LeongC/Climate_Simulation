@@ -3,37 +3,22 @@ package entities;
 import processing.core.PApplet;
 import processing.core.PVector;
 
-import java.util.ArrayList;
 
 public class Cloud extends PApplet {
     private PVector pos;
-    private int dropletAmount;
-    private ArrayList<RainDroplet> rainDropletsArray;
-    private int waterStored = 40;
+    private int waterStored = (int)random(20, 50);
 
-    public Cloud(int x, int y, int z, int dropletAmount){
+    public Cloud(int x, int y, int z){
         float z_rand = random(-20, 20);
         this.pos = new PVector(x, y, z+z_rand);
-        this.dropletAmount = dropletAmount;
-        rainDropletsArray = new ArrayList<>();
     }
 
+    // A function that gets that (x, y, z) position of this cloud
     public PVector getPos(){
         return pos;
     }
 
-    public int getDropletAmount(){
-        return dropletAmount;
-    }
-
-    public ArrayList<RainDroplet> getRainDropletsArray(){
-        return rainDropletsArray;
-    }
-
-    public void addDroplets(RainDroplet rainDroplet){
-        rainDropletsArray.add(rainDroplet);
-    }
-
+    // A function that get the amount of water stored in this cloud
     public int getWaterStored(){
         return waterStored;
     }

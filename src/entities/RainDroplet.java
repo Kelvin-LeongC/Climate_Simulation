@@ -5,7 +5,6 @@ import processing.core.PApplet;
 
 public class RainDroplet extends PApplet{
 
-    private Cloud cloud;
     private PVector cloud_pos;
     private float x;
     private float y;
@@ -15,7 +14,6 @@ public class RainDroplet extends PApplet{
     private int ground_altitude;
 
     public RainDroplet(Cloud cloud, int ground_altitude){
-        this.cloud = cloud;
         this.cloud_pos = cloud.getPos();
         this.x = cloud_pos.x + random(-0.5f, 0.5f);
         this.y = cloud_pos.y + random(-0.5f, 0.5f);
@@ -37,27 +35,24 @@ public class RainDroplet extends PApplet{
         }
     }
 
+    // A function that gets the x-position of the droplet
     public float getX(){
         return x;
     }
 
+    // A function that gets the y-position of the droplet
     public float getY(){
         return y;
     }
 
+    // A function that gets the z-position of the droplet
     public float getZ(){
         return z;
     }
 
-    public PVector getVel(){
-        return vel;
-    }
-
+    // A function that gets the length of the droplet
     public float getLength(){
         return length;
     }
 
-    public Cloud getCloud(){
-        return cloud;
-    }
 }

@@ -17,6 +17,8 @@ public class SurfaceWater extends PApplet {
         }
     }
 
+    // A probability function that determines if the surface water
+    // at a specific (x,y) location has evaporated
     public boolean evaporated(int x, int y, float externalFactor){
         if(random(0,1) * (externalFactor/100.0) < surfaceWater[x][y]/1000){
             return true;

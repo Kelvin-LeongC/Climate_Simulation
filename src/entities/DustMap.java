@@ -8,6 +8,7 @@ public class DustMap extends PApplet {
     public DustMap(int cols, int rows){
         this.dustMap = new float[cols][rows];
 
+        //Generate another 2D map for dust distribution using Perlin noises
         float x_off = 0;
         for(int x = 0; x < cols; x++){
             float y_off = 0;
@@ -19,6 +20,7 @@ public class DustMap extends PApplet {
         }
     }
 
+    // A function that gets the Dust maps
     public float[][] getDustMap(){
         return dustMap;
     }
