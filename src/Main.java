@@ -18,7 +18,9 @@ public class Main extends PApplet {
     private ArrayList<Cloud> cloud_array;
 
     private int[][] waterEvaporated;
-    //private boolean[][] cloudExisted;
+
+    private boolean raining = false;
+
 
     public static void main(String[] args) {
         PApplet.main("Main",args);
@@ -70,14 +72,31 @@ public class Main extends PApplet {
         // Visualizing the terrain
         drawTerrain();
 
-        // Function that determines if cloud at a location will form
-        updateEvaporation();
 
-        for(int x = 0; x < cols; x++){
-            for(int y = 0; y < cols; y++){
-                if(waterEvaporated[x][y] > 100) {
-                    cloud_array.add(new Cloud(x, y, cloud_altitude, (int) random(10, 30)));
-                    waterEvaporated[x][y] = -1;
+        if(!raining) {
+            // Determine if surface water would evaporate
+            updateEvaporation();
+
+            //int cloud_count = 0;
+            float grid_total = cols * rows;
+
+            // Determines if cloud at a location will form
+            for (int x = 0; x < cols; x++) {
+                for (int y = 0; y < cols; y++) {
+                    if (waterEvaporated[x][y] > 100) {
+                        cloud_array.add(new Cloud(x, y, cloud_altitude, (int)random(1,2)));
+                        waterEvaporated[x][y] = -1;
+                    }
+                }
+            }
+
+            // Critical condition to determine if it turns raining
+            System.out.println(cloud_array.size());
+            if(cloud_array.size()/grid_total > 0.05){
+                raining = true;
+
+                for(Cloud cloud: cloud_array){
+                    cloud.addDroplets(new RainDroplet(cloud, (int)terrain[(int)cloud.getPos().x][(int)cloud.getPos().y]));
                 }
             }
         }
@@ -87,15 +106,24 @@ public class Main extends PApplet {
             Cloud cloud = cloud_array.get(i);
             drawCloud(cloud);
 
-            /*ArrayList<RainDroplet> rainDropletArray = cloud.getRainDropletsArray();
-            for (int j = 0; j < rainDropletArray.size(); j++) {
-                drawRainDroplet(rainDropletArray.get(j));
-            }
 
-            cloud.deductWaterStored();
-            if(cloud_array.get(0).getWaterStored() <= 0){
-                cloud_array.remove(0);
-            }*/
+            if(raining) {
+                ArrayList<RainDroplet> rainDropletArray = cloud.getRainDropletsArray();
+                for (int j = 0; j < rainDropletArray.size(); j++) {
+                    drawRainDroplet(rainDropletArray.get(j));
+                }
+                cloud.deductWaterStored();
+
+                if (cloud_array.get(0).getWaterStored() <= 0) {
+                    cloud_array.remove(0);
+                }
+
+                if(cloud_array.size() == 0){
+                    resetGridPoints();
+                    raining = false;
+                }
+
+            }
         }
 
 
@@ -127,7 +155,7 @@ public class Main extends PApplet {
     private void updateEvaporation(){
         for(int x = 0; x < cols; x++){
             for(int y = 0; y < rows; y++){
-                if(waterEvaporated[x][y] != -1 &&surfaceWater.evaporated(x, y)){
+                if(waterEvaporated[x][y] != -1 && surfaceWater.evaporated(x, y)){
                     waterEvaporated[x][y]++;
                 }
             }
@@ -152,10 +180,17 @@ public class Main extends PApplet {
     }
 
     private void drawRainDroplet(RainDroplet rainDroplet){
-        stroke(255);
+        stroke(188);
         line(rainDroplet.getX() * scale, rainDroplet.getY() * scale, rainDroplet.getZ(),
                 rainDroplet.getX() * scale, rainDroplet.getY() * scale, rainDroplet.getZ() - rainDroplet.getLength());
         rainDroplet.fall();
     }
 
+    private void resetGridPoints(){
+        for(int x = 0; x < cols; x++){
+            for(int y = 0; y < rows; y++){
+                waterEvaporated[x][y] = 0;
+            }
+        }
+    }
 }
